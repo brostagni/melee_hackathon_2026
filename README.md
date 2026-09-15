@@ -1,227 +1,163 @@
-# Hackathon IA for Impact 2026 — Fiches IBM Bob
+# Hackathon IA for Impact 2026 — Guide pratique avec IBM Bob
 
-> **Ressources pratiques pour utiliser IBM Bob efficacement pendant les 30 heures de hackathon**  
 > La Mêlée Numérique · Toulouse · 9–10 octobre 2026
+> Dix fiches pour préparer son environnement, construire un MVP en équipe et présenter une démonstration crédible.
 
----
+## 1. À quoi sert ce dépôt ?
 
-## Présentation
+Ce dépôt rassemble des fiches pratiques pour accompagner les participants au Hackathon IA for Impact 2026 avec [IBM Bob](https://bob.ibm.com).
 
-Ce dépôt contient **10 fiches de référence** pour utiliser [IBM Bob](https://bob.ibm.com) — l'assistant IA de développement d'IBM — lors du **Hackathon IA for Impact 2026**.
+Vous y trouverez des explications, des prompts à adapter, des procédures de travail en équipe et des critères pour vérifier votre progression.
 
-Chaque fiche est conçue pour être opérationnelle immédiatement : prompts prêts à l'emploi, checklists de sortie, gabarits de validation. Elles sont organisées pour une équipe de **4–5 personnes** disposant d'un budget de **~50 BobCoins par personne** sur les 30 heures.
+Le parcours vise un résultat concret : **un MVP — produit minimum viable — centré sur un utilisateur, fonctionnel sur un cas représentatif et démontrable avec des limites clairement annoncées**.
 
-**Structure du hackathon couverte :**
+Les exemples sont adaptés à une équipe de quatre à cinq personnes. Ajustez les rôles, les technologies et le budget à votre situation.
 
+## 2. Par où commencer ?
+
+1. **Découvrez Bob** avec la [fiche 00](00_bob_intro.md).
+2. **Préparez votre poste et vos questions** avec la [fiche 04](04_hack_etape0_prephackathon.md).
+3. Consultez la [fiche 01](01_bob_bobcoin.md) pour suivre votre consommation et la [fiche 02](02_bob_projet_equipe.md) pour organiser le travail en équipe.
+4. Si vous avez besoin de recherche web, consultez la [fiche 03](03_bob_mcp_web.md).
+5. Pendant le hackathon, suivez les étapes des **fiches 05 à 09**.
+
+Les fiches sont consultables directement sur GitHub. Pour les ouvrir dans Bob, téléchargez le dépôt ou clonez-le sur votre machine.
+
+### Récupérer les fiches localement
+
+**macOS / Linux :**
+
+```bash
+mkdir -p ~/Documents/BobIA
+cd ~/Documents/BobIA
+git clone https://github.com/brostagni/melee_hackathon_2026.git
+cd melee_hackathon_2026
 ```
-Avant Ven 17h  →  Étape 0 : Pré-hackathon (fiches 00–04)
-Ven 17h–22h    →  Étape 1 : Cadrage (fiche 05)
-Ven 22h–Sam 2h →  Étape 2 : Architecture & setup (fiche 06)
-Sam 2h–7h      →  Étape 3 : Production nocturne (fiche 07)
-Sam 7h–13h     →  Étape 4 : Finalisation & code freeze (fiche 08)
-Sam 13h–17h    →  Étape 5 : Pitch & démo (fiche 09)
+
+**Windows PowerShell :**
+
+```powershell
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\Documents\BobIA"
+Set-Location "$env:USERPROFILE\Documents\BobIA"
+git clone https://github.com/brostagni/melee_hackathon_2026.git
+Set-Location melee_hackathon_2026
 ```
 
----
+Dans Bob, sélectionnez **File → Open Folder**, puis ouvrez le dossier `melee_hackathon_2026`.
 
-## Les 10 fiches
+**Ce dépôt contient les supports de préparation.** Le code du MVP sera développé dans un dépôt d'équipe distinct, créé pendant le cadrage. Utilisez alors l'URL communiquée par votre Lead Dev.
 
-| # | Fiche | Sujet | Timing |
-|---|-------|-------|--------|
-| 00 | [C'est quoi Bob ?](00_bob_intro.md) | Introduction, les 3 modes, les outils natifs, `/init` | Avant le hackathon |
-| 01 | [Les BobCoin](01_bob_bobcoin.md) | Budget, stratégie Ask→Plan→Agent, les 5 erreurs à éviter | Tout le hackathon |
-| 02 | [Bob en équipe](02_bob_projet_equipe.md) | `/init`, `AGENTS.md`, `.bob/rules/`, configuration partagée Git | Ven 22h (setup) |
-| 03 | [MCP Tavily — recherche web](03_bob_mcp_web.md) | Ajouter la recherche web à Bob via MCP Tavily | Avant le hackathon |
-| 04 | [Étape 0 — Pré-hackathon](04_hack_etape0_prephackathon.md) | Préparer l'environnement, analyser les défis, préparer les questions sponsors | Avant Ven 17h |
-| 05 | [Étape 1 — Cadrage](05_hack_etape1_cadrage.md) | Comprendre le défi, formuler le MVP, répartir les rôles | Ven 17h → 22h |
-| 06 | [Étape 2 — Architecture & setup](06_hack_etape2_setup.md) | Architecture, dépôt, squelette de projet, tâches attribuées | Ven 22h → Sam 2h |
-| 07 | [Étape 3 — Production nocturne](07_hack_etape3_production.md) | Développement par briques, mocks, déblocage ciblé | Sam 2h → 7h |
-| 08 | [Étape 4 — Finalisation](08_hack_etape4_finalisation.md) | Code freeze à 13h, démo stable, README, test sur device final | Sam 7h → 13h |
-| 09 | [Étape 5 — Pitch](09_hack_etape5_pitch.md) | Script oral, questions jury, répétitions, plan de secours | Sam 13h → 17h |
+Si vous avez déjà cloné les fiches, réutilisez votre copie existante.
 
----
+## 3. Les dix fiches
 
-## Résumé de chaque fiche
+### Comprendre et configurer Bob
 
-### [Fiche 00 — C'est quoi Bob ?](00_bob_intro.md)
+| Fiche                                                | Ce qu'elle vous aide à faire                                                     |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [00 — C'est quoi Bob ?](00_bob_intro.md)             | Comprendre les modes, les outils et le vocabulaire.                              |
+| [01 — Gérer ses Bobcoins](01_bob_bobcoin.md)         | Suivre la consommation, maîtriser le contexte et préserver une réserve.          |
+| [02 — Travailler en équipe](02_bob_projet_equipe.md) | Configurer le projet, partager les consignes et organiser les contributions.     |
+| [03 — Recherche web avec Tavily](03_bob_mcp_web.md)  | Distinguer lecture d'une URL et recherche web, puis configurer et tester le MCP. |
 
-IBM Bob est un **agent IA de développement** qui agit directement dans votre projet : il lit vos fichiers, écrit du code, exécute des commandes et peut utiliser des outils externes via MCP — le tout depuis une interface de chat.
+### Avancer du brief à la démonstration
 
-**Points clés :**
-- **3 modes** : `Ask` (questions, 0 fichier modifié), `Plan` (réflexion/architecture, 0 fichier modifié), `Agent` (écriture et exécution réelle)
-- **Différence clé** vs Copilot/Claude : Bob lit, modifie et exécute *nativement*, sans plugin IDE
-- **`/init`** : commande gratuite (0 BobCoin) à lancer en premier sur tout nouveau projet — génère `AGENTS.md` et `.bob/`
-- **Règle d'or** : Ask → Plan → Agent. Ne passer en Agent que quand on sait exactement ce que l'on veut
+| Fiche                                                    | Résultat recherché                                                                         |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [04 — Pré-hackathon](04_hack_etape0_prephackathon.md)    | Un environnement prêt et des questions utiles pour les sponsors.                           |
+| [05 — Découverte et cadrage](05_hack_etape1_cadrage.md)  | Un utilisateur, un problème, un MVP et un scénario de démonstration retenus.               |
+| [06 — Architecture et setup](06_hack_etape2_setup.md)    | Un premier parcours connecté, un squelette partagé et le principal risque technique testé. |
+| [07 — Production nocturne](07_hack_etape3_production.md) | La fonction centrale du MVP réalisée et intégrée dans la version commune.                  |
+| [08 — Finalisation](08_hack_etape4_finalisation.md)      | Une démonstration reproductible, une solution de secours et une version identifiée.        |
+| [09 — Pitch et démo](09_hack_etape5_pitch.md)            | Une présentation répétée, factuelle et adaptée au temps de passage.                        |
 
----
+## 4. Les jalons de travail
 
-### [Fiche 01 — Les BobCoin](01_bob_bobcoin.md)
+Les créneaux ci-dessous constituent le parcours de travail proposé dans les fiches. Les consignes de l'organisation prévalent pour les horaires, les livrables et le passage devant le jury.
 
-Les BobCoins sont la métrique de consommation transparente de Bob. Chaque token (mots en entrée + contexte + réponse) se convertit en BobCoins.
+| Créneau                      | Priorité   | Résultat attendu                                                                    |
+| ---------------------------- | ---------- | ----------------------------------------------------------------------------------- |
+| **Avant vendredi 17 h**      | Préparer   | Bob opérationnel, accès vérifiés, briefs lus et questions préparées.                |
+| **Vendredi 17 h–22 h**       | Cadrer     | Un seul MVP retenu, un hors périmètre explicite et des rôles répartis.              |
+| **Vendredi 22 h–samedi 2 h** | Connecter  | Un parcours minimal exécutable et le risque technique principal testé.              |
+| **Samedi 2 h–7 h**           | Réaliser   | La fonction centrale fonctionne sur un cas représentatif dans la version partagée.  |
+| **Samedi 7 h–13 h**          | Stabiliser | Démonstration et secours testés, README utilisable, version de référence conservée. |
+| **Samedi 13 h–17 h**         | Répéter    | Présentation chronométrée, transitions maîtrisées et réponses au jury préparées.    |
 
-**Points clés :**
-- 🔴 **Élevé** : mode Agent sur un gros fichier, conversations longues, prompts vagues
-- 🟡 **Moyen** : mode Plan, mode Agent ciblé
-- 🟢 **Faible** : mode Ask avec question courte
-- ⚪ **Gratuit** : `/init`, `.bob/rules/`, `AGENTS.md`, ouvrir une nouvelle conversation (`+`)
-- **Budget recommandé** : 43–50 coins/personne sur 30h (+ 5–12 de réserve non négociable)
-- **Les 5 erreurs à éviter** : conversation fleuve, demander à Bob de lire tout le projet, prompt vague, Agent pour une question, ne pas partager les réponses utiles
+**Repère de planification : vendredi 22 h → samedi 13 h représente 15 heures écoulées**, pauses, intégration et tests compris.
 
----
+Le jalon de **13 h** correspond à l'objectif de gel des fonctionnalités retenu dans cette méthode. Une correction exceptionnelle d'un défaut bloquant impose une nouvelle vérification de la version de démonstration.
 
-### [Fiche 02 — Bob en équipe](02_bob_projet_equipe.md)
+La préparation du pitch commence en parallèle du développement. Une équipe prête peut avancer sans attendre le créneau suivant.
 
-Sans configuration partagée, chaque membre de l'équipe reçoit des réponses différentes et doit réexpliquer le contexte à chaque conversation. La solution : un dossier `.bob/` versionné dans Git.
+## 5. Bien utiliser Bob pendant le hackathon
 
-**Points clés :**
-- **`/init`** génère automatiquement `AGENTS.md` + fichiers de contexte dans `.bob/`
-- **`.bob/rules/`** : fichiers Markdown lus automatiquement à chaque conversation (0 BobCoin)
-  - `01_stack.md` — conventions de code et stack technique
-  - `02_langue.md` — langue de réponse, ton, format
-  - `03_equipe.md` — rôles, périmètres, conventions Git
-- **`.bob/mcp.json`** : configuration des MCPs partagée avec toute l'équipe
-- Règles projet > règles personnelles (`~/.bob/rules/`)
-- **Checklist** avant de démarrer le hacking : `/init` fait, rules créées, MCP configuré, tout commité et pushé, chaque membre a cloné
+### Choisir le mode selon le besoin
 
----
+* **Ask** : comprendre un document, explorer le projet ou clarifier une question.
+* **Plan** : préparer une réalisation et comparer les options lorsqu'un arbitrage est nécessaire.
+* **Agent** : implémenter, modifier des fichiers, exécuter des commandes et vérifier les résultats.
 
-### [Fiche 03 — MCP Tavily — recherche web](03_bob_mcp_web.md)
+Ask → Plan → Agent est un parcours utile pour une tâche incertaine. Une correction simple peut commencer directement en Agent.
 
-Bob n'a aucun accès réseau par défaut. Le MCP Tavily connecte Bob à un moteur de recherche web optimisé pour les agents IA.
+### Donner une tâche vérifiable
 
-**Points clés :**
-- **Option A (recommandée)** : compte Tavily gratuit sur [app.tavily.com](https://app.tavily.com) → 1 000 crédits/mois
-- **Configuration** : `uvx` (via `uv`) + fichier `.bob/mcp.json` avec `${TAVILY_API_KEY}` (jamais en dur)
-- **Règle d'or** : si tu connais déjà l'URL, utilise `@https://...` dans le chat plutôt que Tavily (moins coûteux)
-- **Ne jamais commiter la clé API** : utiliser une variable d'environnement locale
-- **Vérification** : serveur `tavily-mcp` vert dans Settings → MCP de Bob
+Adaptez les prompts des fiches en indiquant :
 
----
+* le résultat attendu ;
+* les fichiers ou composants concernés ;
+* les contraintes et interfaces à respecter ;
+* un exemple d'entrée et de sortie lorsque cela aide ;
+* les critères de réussite.
 
-### [Fiche 04 — Étape 0 : Pré-hackathon](04_hack_etape0_prephackathon.md)
+Vérifiez les résultats obtenus et les commandes réellement exécutées. Une réponse convaincante ne suffit pas à valider une fonctionnalité.
 
-*Timing : avant vendredi 9 octobre 17h*
+### Suivre le budget réel
 
-Arriver au lancement avec un environnement fonctionnel et des questions utiles préparées pour les sponsors.
+Vérifiez votre solde au démarrage et aux principaux jalons. Les allocations dépendent des comptes utilisés ; les montants donnés en exemple ne constituent pas une garantie.
 
-**Points clés :**
-- Bob ouvert, testé en mode Ask, MCP web opérationnel
-- Pour chaque défi : identifier utilisateur, problème, données disponibles, contraintes, 3 questions au sponsor
-- **Prompt générique** d'analyse des documents de défi inclus (mode Ask)
-- **Ne pas choisir de solution trop tôt** — analyser d'abord, décider à l'étape 1
-- Checklist de sortie : 7 points (Bob testé, MCP vérifié, stack connue, questions prêtes, wireframe choisi, aucun secret dans Git, solde BobCoin vérifié)
+Les instructions projet et les contenus chargés contribuent au contexte traité par Bob. Gardez-les utiles et concis.
 
----
+Si vous utilisez Tavily, distinguez **la consommation Bob** et **les crédits du service de recherche**.
 
-### [Fiche 05 — Étape 1 : Cadrage](05_hack_etape1_cadrage.md)
+## 6. Travailler sur une version commune
 
-*Timing : vendredi 17h → 22h*
+* Le Lead Dev prépare le squelette et annonce quand il est disponible.
+* Chaque membre clone le dépôt d'équipe une seule fois et prépare son environnement local.
+* Les contributions suivent la procédure de branches et de pull requests définie par l'équipe.
+* Après intégration, le parcours principal est vérifié sur la version partagée.
+* Les découvertes utiles sont partagées dans le chat d'équipe. Une personne désignée consigne les décisions validées dans `docs/bob-notes.md`.
 
-Comprendre le besoin avec le sponsor, choisir un défi et formuler un MVP démontrable en 20 heures.
+Les fichiers de configuration partagés fournissent des consignes communes. Les identifiants et les prérequis locaux restent à configurer sur chaque poste.
 
-**Points clés :**
-- **Format MVP** : *"Pour [utilisateur], qui rencontre [problème], nous construisons [fonction unique] afin de [résultat observable], démontrée sur [cas de démonstration]."*
-- **Modes** : Ask pour clarifier le brief, Plan pour comparer les options
-- **Prompt générique** de cadrage inclus : 3 MVP comparés, chacun évalué sur faisabilité en 20h
-- **Gabarit de validation** : liste de contrôle avant de passer à l'architecture (MVP retenu, scénario de démo, chemin de secours avec données fictives)
-- Ne pas commencer l'implémentation avant que l'équipe sache répondre à « quoi, pour qui, comment le démontrer »
+## 7. Ce que la démonstration doit prouver
 
----
+La démonstration doit montrer le bénéfice central du MVP sur un cas représentatif.
 
-### [Fiche 06 — Étape 2 : Architecture & setup](06_hack_etape2_setup.md)
+Distinguez explicitement :
 
-*Timing : vendredi 22h → samedi 2h*
+* les données réelles et les données synthétiques ;
+* les traitements exécutés en direct et les résultats préparés ;
+* les résultats constatés, les hypothèses et les perspectives.
 
-Obtenir un dépôt qui démarre, une architecture décidée, des écrans esquissés et des tâches distribuées. Objectif : que ça *démarre* — pas que ça soit fonctionnel.
+Une simulation peut permettre de présenter un parcours, mais elle ne prouve pas que le traitement remplacé fonctionne.
 
-**Points clés :**
-- Décision d'architecture limitée à **30 minutes**
-- Lancer `/init` dans Bob dès le dépôt créé
-- **Prompt d'architecture** (mode Plan) + **prompt d'implémentation** (mode Agent) inclus
-- **Squelette uniquement** : les collecteurs de données réels et fonctionnalités avancées sont pour l'étape 3
-- Prévoir un chemin de démo sans données réelles (JSON local ou mock statique)
-- **Critère de succès** : le projet démarre avec une commande et affiche quelque chose
+Avant le pitch, conservez une version identifiée, rejouez le scénario dans les conditions de présentation et testez la bascule vers la solution de secours.
 
----
+## 8. Documents complémentaires et références
 
-### [Fiche 07 — Étape 3 : Production nocturne](07_hack_etape3_production.md)
+Ce dépôt contient les dix fiches et ce README. Les briefs sponsors, le programme officiel et la méthodologie cités dans certaines fiches ne sont pas inclus dans cette version du dépôt.
 
-*Timing : samedi 2h → 7h*
+Les liens vers `../Défis/`, `../Organisation/` et `../Méthodologie/` supposent que ces documents sont disponibles dans l'arborescence locale correspondante. Récupérez-les auprès de l'organisation et vérifiez les consignes applicables à votre défi.
 
-Obtenir un prototype qui fonctionne sur le parcours principal, même incomplet.
+### Documentation des outils
 
-**Points clés :**
-- Coder par **briques indépendantes et testables**, intégrer tôt
-- **Checkpoint** de 10 minutes toutes les 2 heures
-- **Priorité absolue** : générer les données mock *avant* tout autre développement — elles garantissent une démo stable même si les collecteurs réels ne fonctionnent pas à 13h
-- **Prompt de mock** inclus (3 cas : nominal, champ manquant, décision humaine requise)
-- **Prompt de déblocage** ciblé : donner fichier + erreur exacte + résultat attendu
-- Gérer la fatigue : une personne bloquée depuis longtemps passe le relais plutôt que de dégrader le prototype
-
----
-
-### [Fiche 08 — Étape 4 : Finalisation & code freeze](08_hack_etape4_finalisation.md)
-
-*Timing : samedi 7h → 13h · Code freeze à 13h*
-
-Transformer le prototype nocturne en démonstration fiable et reproductible. Après 13h : **aucune nouvelle fonctionnalité**.
-
-**Points clés :**
-- Stabiliser le parcours principal, arrêter les fonctionnalités secondaires
-- **Prompt de revue de démo** ciblé inclus : corrige uniquement ce qui empêche le parcours de fonctionner
-- **Prompt de README** inclus : installe + configure + lance + distingue données réelles/mock/limites
-- Tester sur le **device de présentation**, pas seulement sur le poste de développement
-- **Commit de code freeze** à 13h — tag ou commit identifiable
-- Critères jury officiels : impact, faisabilité, viabilité, niveau de réalisation du prototype
-
----
-
-### [Fiche 09 — Étape 5 : Pitch](09_hack_etape5_pitch.md)
-
-*Timing : samedi 13h → 17h · Time to Pitch à 17h*
-
-Présenter une solution compréhensible, crédible et démontrable devant le jury en 4 heures de préparation.
-
-**Points clés :**
-- **Structure recommandée** : Problème → Solution → Démo → Impact & viabilité → Équipe
-- **Prompt de script oral** inclus (mode Ask) : factuel, séparant résultats démontrés / hypothèses / à faire
-- **Prompt de questions jury** inclus : 10 questions difficiles sur impact, faisabilité, données, limites, sécurité
-- Répéter **au moins 3 fois** avec le même appareil et les mêmes données
-- Ne jamais présenter une projection comme un résultat obtenu
-- Préparer un **plan de secours** (vidéo ou scénario alternatif)
-
----
-
-## Comment utiliser ces fiches
-
-### Ordre recommandé
-
-1. **Avant le hackathon** : lire les fiches 00, 01, 02, 03 et 04
-2. **Vendredi 17h** : ouvrir la fiche 05 (cadrage)
-3. **Vendredi 22h** : ouvrir la fiche 06 (setup) — avoir déjà fait `/init`
-4. **Samedi 2h** : ouvrir la fiche 07 (production) — avoir les mocks en priorité
-5. **Samedi 7h** : ouvrir la fiche 08 (finalisation) — viser le code freeze à 13h
-6. **Samedi 13h** : ouvrir la fiche 09 (pitch)
-
-### Principe d'utilisation
-
-Chaque fiche contient :
-- Un **objectif** et des **livrables attendus** à l'heure de sortie
-- Des **prompts prêts à copier-coller** dans Bob
-- Un **gabarit de validation** pour vérifier que la sortie de Bob est exploitable
-- Une **checklist de sortie** avant de passer à l'étape suivante
-
-> **Règle des modes** : Ask pour comprendre, Plan pour décider, Agent pour faire. Dans cet ordre. Voir fiche 01 pour le budget.
-
----
-
-## Ressources
-
-- [IBM Bob — Documentation officielle](https://bob.ibm.com/docs/ide)
-- [BobCoins — Comprendre le budget](https://bob.ibm.com/docs/ide/account/bobcoins)
-- [MCP dans Bob](https://bob.ibm.com/docs/ide/features/mcp/using-mcp-in-bob)
-- [Démarrer un projet avec /init](https://bob.ibm.com/docs/ide/getting-started/tutorials/start-a-project)
-- [Tavily — Recherche web pour agents IA](https://tavily.com)
+* [IBM Bob — Documentation](https://bob.ibm.com/docs/ide)
+* [IBM Bob — Modes](https://bob.ibm.com/docs/ide/features/modes)
+* [IBM Bob — Bobcoins](https://bob.ibm.com/docs/ide/account/bobcoins)
+* [IBM Bob — Initialiser un projet](https://bob.ibm.com/docs/ide/tutorials/start-a-project)
+* [IBM Bob — Configuration MCP](https://bob.ibm.com/docs/ide/configuration/mcp/mcp-in-bob)
+* [Tavily — Serveur MCP officiel](https://github.com/tavily-ai/tavily-mcp)
 
 ---
 
